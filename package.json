@@ -1,0 +1,17 @@
+{
+  "name": "bmb-space",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BMB Space — Virtual Office website (Bogor). Static site built with Tailwind CSS.",
+  "scripts": {
+    "build": "tailwindcss -i ./css/input.css -o ./css/style.css --minify",
+    "watch": "tailwindcss -i ./css/input.css -o ./css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49"
+  }
+}

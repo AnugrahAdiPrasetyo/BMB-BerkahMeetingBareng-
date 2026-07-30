@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: theme("colors.background");
+  }
+}
+
+@layer components {
+  /* Sticky top navigation bar */
+  .nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  /* Frosted-glass panel used on the hero card */
+  .glass-effect {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Elevated card with a soft hover lift, used across feature/service/testimonial cards */
+  .card-shadow {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+  }
+
+  .card-shadow:hover {
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  /* Default (unfilled) rendering for Material Symbols icon font */
+  .material-symbols-outlined {
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+}

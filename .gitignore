@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+
+# Note: css/style.css IS committed on purpose.
+# This keeps the site fully viewable (open index.html) without
+# requiring `npm install && npm run build` first.
+# Run `npm run build` again after editing css/input.css or any HTML
+# classes, then commit the updated css/style.css.
