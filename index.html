@@ -50,12 +50,66 @@
 </head>
 <body class="text-on-background selection:bg-primary-container selection:text-white">
 <a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-primary focus:text-white focus:px-md focus:py-3 focus:rounded-2xl" href="#main-content">Lewati ke konten utama</a>
+<!-- Section 0: Promotional Banner Slider -->
+<section aria-label="Promo" aria-roledescription="carousel" class="relative w-full bg-primary-container overflow-hidden" id="promo-banner">
+<div class="relative">
+<div class="flex transition-transform duration-500 ease-in-out motion-reduce:transition-none" id="promo-track">
+<!-- Slide 1: Virtual Office -->
+<div aria-label="1 dari 3" aria-roledescription="slide" class="w-full shrink-0 flex flex-col sm:flex-row items-center gap-sm sm:gap-lg px-margin-mobile sm:px-margin-desktop py-md sm:py-lg max-w-7xl mx-auto" role="group">
+<div class="flex-1 text-center sm:text-left">
+<span class="inline-block text-label-sm font-label-sm text-primary-container bg-white rounded-full px-sm py-1 mb-xs">Promo Diperlukan</span>
+<h2 class="text-headline-sm sm:text-headline-md font-headline-sm text-white mb-xs">Promo Spesial Virtual Office</h2>
+<p class="text-body-sm sm:text-body-md text-white/90 mb-sm max-w-md mx-auto sm:mx-0">Detail penawaran khusus untuk layanan Virtual Office akan ditambahkan di sini.</p>
+<a class="inline-flex items-center gap-xs bg-white text-primary-container px-md py-2 rounded-2xl font-label-md hover:bg-surface-container-low transition-all" href="pages/services/virtual-office.html">Lihat Virtual Office <span aria-hidden="true" class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+</div>
+<div class="w-28 h-20 sm:w-40 sm:h-28 shrink-0 border-2 border-dashed border-white/40 rounded-2xl flex items-center justify-center">
+<span aria-hidden="true" class="material-symbols-outlined text-white/70" style="font-size: 32px;">image</span>
+</div>
+</div>
+<!-- Slide 2: Workspace -->
+<div aria-label="2 dari 3" aria-roledescription="slide" class="w-full shrink-0 flex flex-col sm:flex-row items-center gap-sm sm:gap-lg px-margin-mobile sm:px-margin-desktop py-md sm:py-lg max-w-7xl mx-auto" role="group">
+<div class="flex-1 text-center sm:text-left">
+<span class="inline-block text-label-sm font-label-sm text-primary-container bg-white rounded-full px-sm py-1 mb-xs">Promo Diperlukan</span>
+<h2 class="text-headline-sm sm:text-headline-md font-headline-sm text-white mb-xs">Promo Spesial Workspace</h2>
+<p class="text-body-sm sm:text-body-md text-white/90 mb-sm max-w-md mx-auto sm:mx-0">Detail penawaran khusus untuk layanan Workspace akan ditambahkan di sini.</p>
+<a class="inline-flex items-center gap-xs bg-white text-primary-container px-md py-2 rounded-2xl font-label-md hover:bg-surface-container-low transition-all" href="pages/services/workspace.html">Lihat Workspace <span aria-hidden="true" class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+</div>
+<div class="w-28 h-20 sm:w-40 sm:h-28 shrink-0 border-2 border-dashed border-white/40 rounded-2xl flex items-center justify-center">
+<span aria-hidden="true" class="material-symbols-outlined text-white/70" style="font-size: 32px;">image</span>
+</div>
+</div>
+<!-- Slide 3: Legal & Tax Consultation -->
+<div aria-label="3 dari 3" aria-roledescription="slide" class="w-full shrink-0 flex flex-col sm:flex-row items-center gap-sm sm:gap-lg px-margin-mobile sm:px-margin-desktop py-md sm:py-lg max-w-7xl mx-auto" role="group">
+<div class="flex-1 text-center sm:text-left">
+<span class="inline-block text-label-sm font-label-sm text-primary-container bg-white rounded-full px-sm py-1 mb-xs">Promo Diperlukan</span>
+<h2 class="text-headline-sm sm:text-headline-md font-headline-sm text-white mb-xs">Konsultasi Gratis Legal &amp; Pajak</h2>
+<p class="text-body-sm sm:text-body-md text-white/90 mb-sm max-w-md mx-auto sm:mx-0">Detail penawaran khusus Legal Setup &amp; Accounting akan ditambahkan di sini.</p>
+<a class="inline-flex items-center gap-xs bg-white text-primary-container px-md py-2 rounded-2xl font-label-md hover:bg-surface-container-low transition-all" href="pages/contact.html">Konsultasi Sekarang <span aria-hidden="true" class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+</div>
+<div class="w-28 h-20 sm:w-40 sm:h-28 shrink-0 border-2 border-dashed border-white/40 rounded-2xl flex items-center justify-center">
+<span aria-hidden="true" class="material-symbols-outlined text-white/70" style="font-size: 32px;">image</span>
+</div>
+</div>
+</div>
+<button aria-label="Slide sebelumnya" class="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-all" id="promo-prev" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-white">chevron_left</span>
+</button>
+<button aria-label="Slide berikutnya" class="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 hover:bg-white/40 flex items-center justify-center transition-all" id="promo-next" type="button">
+<span aria-hidden="true" class="material-symbols-outlined text-white">chevron_right</span>
+</button>
+</div>
+<div aria-label="Pilih slide promo" class="flex justify-center gap-xs pb-sm" role="tablist">
+<button aria-controls="promo-track" aria-label="Ke slide 1" aria-selected="true" class="w-2 h-2 rounded-full bg-white transition-all" data-slide-dot="0" role="tab" type="button"></button>
+<button aria-controls="promo-track" aria-label="Ke slide 2" aria-selected="false" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-slide-dot="1" role="tab" type="button"></button>
+<button aria-controls="promo-track" aria-label="Ke slide 3" aria-selected="false" class="w-2 h-2 rounded-full bg-white/40 transition-all" data-slide-dot="2" role="tab" type="button"></button>
+</div>
+</section>
 <!-- Section 1: TopNavBar -->
 <nav class="nav-sticky w-full bg-surface/80 backdrop-blur-md border-b border-outline-variant shadow-sm">
 <div class="h-20 flex justify-between items-center w-full px-margin-desktop max-w-7xl mx-auto">
 <div class="flex items-center gap-sm">
 <img alt="BMB Space Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX8bMKuzIRHwO6K0TFz6CIHoqVhO3VHmNjxDr1qASrGxUATIB6uIRR52zLUwcZINZRY6dsUga67Ehjs5KNkgm6VQTyPwl5SvQAkHpV0DZyWE3gI102fk17YFQzho-QYnMDXoHJ3iZIMLTPdupvNfG34wkH7ThnbRuw9xiRQ70Um5RlsM9X7KHyLlhNXBKTssqbU4aJaYBLUIugywDvxJCrr9bH-4vk1D4Zpx7J8u4ZAIeupVXc1KEvZosEzrYLUM9JViY53-xQ8g">
-<span class="text-headline-md font-headline-md font-bold text-primary">BerkahMeetingBareng</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">BMB Space</span>
 </div>
 <div class="hidden md:flex items-center gap-lg">
 <a class="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#services">Services</a>
@@ -243,27 +297,27 @@
 <div class="grid grid-cols-2 md:grid-cols-3 gap-md">
 <div class="aspect-square overflow-hidden rounded-2xl relative group">
 <img alt="Virtual Office BMB Space" class="w-full h-full object-cover" decoding="async" loading="lazy" src="images/gallery/no.1.jpeg">
-
+<span class="absolute bottom-xs left-xs text-label-sm font-label-sm text-white bg-on-background/60 rounded-full px-sm py-1">Virtual Office</span>
 </div>
 <div class="aspect-square overflow-hidden rounded-2xl relative group">
 <img alt="Area Workspace BMB Space" class="w-full h-full object-cover" decoding="async" loading="lazy" src="images/gallery/no.2.jpeg">
-
+<span class="absolute bottom-xs left-xs text-label-sm font-label-sm text-white bg-on-background/60 rounded-full px-sm py-1">Workspace — Coworking</span>
 </div>
 <div class="aspect-square overflow-hidden rounded-2xl relative group">
 <img alt="Ruang meeting BMB Space" class="w-full h-full object-cover" decoding="async" loading="lazy" src="images/gallery/no.3.jpeg">
-
+<span class="absolute bottom-xs left-xs text-label-sm font-label-sm text-white bg-on-background/60 rounded-full px-sm py-1">Workspace — Meeting Room</span>
 </div>
 <div class="aspect-square overflow-hidden rounded-2xl relative group">
 <img alt="Area resepsionis BMB Space" class="w-full h-full object-cover" decoding="async" loading="lazy" src="images/gallery/no.4.jpeg">
-
+<span class="absolute bottom-xs left-xs text-label-sm font-label-sm text-white bg-on-background/60 rounded-full px-sm py-1">Area Resepsionis</span>
 </div>
 <div class="aspect-square overflow-hidden rounded-2xl relative group">
 <img alt="Fasilitas umum BMB Space" class="w-full h-full object-cover" decoding="async" loading="lazy" src="images/gallery/no.5.jpeg">
-
+<span class="absolute bottom-xs left-xs text-label-sm font-label-sm text-white bg-on-background/60 rounded-full px-sm py-1">Fasilitas Umum</span>
 </div>
 <div class="aspect-square overflow-hidden rounded-2xl relative group">
 <img alt="Suasana kantor BMB Space" class="w-full h-full object-cover" decoding="async" loading="lazy" src="images/gallery/no.6.jpeg">
-
+<span class="absolute bottom-xs left-xs text-label-sm font-label-sm text-white bg-on-background/60 rounded-full px-sm py-1">Suasana Kantor</span>
 </div>
 </div>
 </div>
@@ -303,7 +357,7 @@
 </div>
 </div>
 <div class="text-center">
-<a class="inline-flex bg-primary text-white px-xl py-4 rounded-2xl font-headline-sm hover:bg-on-primary-fixed-variant transition-all shadow-lg" href="pages/pricing.html">Lihat Semua Paket</a>
+<a class="inline-flex bg-primary text-white px-xl py-4 rounded-2xl font-headline-sm hover:bg-on-primary-fixed-variant transition-all shadow-lg" href="pages/pricing.html">Bandingkan Semua Paket</a>
 </div>
 </div>
 </section>
@@ -618,7 +672,7 @@
 </div>
 </div>
 <div class="max-w-7xl mx-auto px-margin-desktop mt-xl pt-lg border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-md">
-<p class="text-label-sm text-on-surface-variant">© 2026 BMB Space. All rights reserved. Virtual Office Profesional di Bogor.</p>
+<p class="text-label-sm text-on-surface-variant">© 2024 BMB Space. All rights reserved. Virtual Office Profesional di Bogor.</p>
 <div class="flex gap-lg">
 <a class="text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Sitemap</a>
 <a class="text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Security</a>
@@ -632,5 +686,6 @@
 <script defer src="js/script.js"></script>
 <script defer src="js/nav.js"></script>
 <script defer src="js/reveal.js"></script>
+<script defer src="js/promo-banner.js"></script>
 </body>
 </html>
