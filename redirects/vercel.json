@@ -1,0 +1,21 @@
+{
+  "//": "Only relevant if the OLD domain (bmbspace.id) is/was hosted on Vercel. Place at the project root of THAT Vercel project, not this repo.",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "bmbspace.id" }
+      ],
+      "destination": "https://www.berkahmeetingbareg.id/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.bmbspace.id" }
+      ],
+      "destination": "https://www.berkahmeetingbareg.id/:path*",
+      "permanent": true
+    }
+  ]
+}

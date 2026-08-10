@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bmbspace.id/sitemap.xml
+Sitemap: https://www.berkahmeetingbareg.id/sitemap.xml

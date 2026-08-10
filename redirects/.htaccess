@@ -1,0 +1,13 @@
+# 301 redirect: bmbspace.id -> berkahmeetingbareg.id
+# Deploy this file at the DOCUMENT ROOT of the OLD domain (bmbspace.id),
+# on whatever server/hosting account that domain currently points to.
+# It does NOT belong in the new site's codebase/deploy folder.
+#
+# Preserves the full path (e.g. /pages/contact.html) and query string
+# when redirecting, so old indexed URLs still land on the right page.
+
+RewriteEngine On
+
+# www.bmbspace.id/anything -> https://www.berkahmeetingbareg.id/anything
+RewriteCond %{HTTP_HOST} ^(www\.)?bmbspace\.id$ [NC]
+RewriteRule ^(.*)$ https://www.berkahmeetingbareg.id/$1 [R=301,L]
