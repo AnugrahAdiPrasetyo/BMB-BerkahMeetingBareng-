@@ -1,0 +1,64 @@
+<!--
+  COMPONENT: pricing-cta-block
+  ============================
+  Reusable "harga belum tetap" block: status badge + info harga + tombol CTA.
+
+  Used for services that don't have fixed package pricing (badge status
+  "Tersedia – Hubungi Kami untuk Diskusi" per data project). Planned usage:
+    - 13.5 Pajak & Keuangan   (pages/services/accounting-tax.html)
+    - 13.6 Digital End-to-End (pages/services/digital-end-to-end.html)
+
+  This is a copy-paste snippet, not a build-time include — this codebase has
+  no template engine (see README.md: "no template engine, no data files...
+  every page is a plain, self-contained HTML file"). Paste the block below
+  into a page's "Paket Utama" pricing section, replacing the 3 placeholder
+  cards there.
+
+  Every class used below already exists elsewhere in the codebase (badge
+  pill from the "Tim Konsultan Pajak" style tags, dashed-border box from the
+  "Untuk Siapa Layanan Ini" sections, and the CTA button from event-space.html's
+  "Butuh Detail Lebih Lanjut?" section), so nothing here needs a Tailwind
+  rebuild to render correctly.
+
+  WHAT TO CHANGE PER PAGE (the only two things):
+    1. CTA_HREF  — link target:
+         WhatsApp:  https://wa.me/6285124626299
+         Formulir:  ../contact.html
+    2. CTA_LABEL — button text matching the target:
+         WhatsApp:  Chat via WhatsApp
+         Formulir:  Isi Formulir Kontak
+
+  Do not change the badge text or price wording per page — that copy is
+  already finalized (from the business data) and shared across every usage.
+-->
+<div class="p-xl bg-surface-container-low rounded-2xl border-2 border-dashed border-outline text-center max-w-2xl mx-auto">
+<span class="inline-flex items-center gap-xs text-label-sm font-label-sm text-primary-container border border-dashed border-primary-container/40 rounded-full px-sm py-1 mb-md">
+<span aria-hidden="true" class="material-symbols-outlined text-[16px]">task_alt</span>
+Tersedia – Hubungi Kami untuk Diskusi
+</span>
+<p class="text-headline-md font-headline-md text-on-background mb-xs">Harga Sesuai Kebutuhan</p>
+<p class="text-body-md text-on-surface-variant mb-lg">Estimasi biaya via diskusi — tim kami akan sesuaikan penawaran dengan kebutuhan bisnis Anda.</p>
+<!-- CTA_HREF and CTA_LABEL: set these per page (WhatsApp atau formulir kontak) -->
+<a class="inline-flex items-center justify-center gap-sm bg-primary text-white px-lg py-3 rounded-2xl font-label-md hover:bg-on-primary-fixed-variant transition-all active:scale-95" href="CTA_HREF">
+CTA_LABEL
+<span aria-hidden="true" class="material-symbols-outlined text-[18px]">send</span>
+</a>
+</div>
+
+<!--
+  USAGE EXAMPLE A — CTA ke WhatsApp
+  (contoh, bukan penentuan final halaman mana pakai yang mana — tunggu arahan XENO di 13.5/13.6)
+
+  <a class="inline-flex items-center justify-center gap-sm bg-primary text-white px-lg py-3 rounded-2xl font-label-md hover:bg-on-primary-fixed-variant transition-all active:scale-95" href="https://wa.me/6285124626299">
+  Chat via WhatsApp
+  <span aria-hidden="true" class="material-symbols-outlined text-[18px]">send</span>
+  </a>
+
+  USAGE EXAMPLE B — CTA ke formulir kontak
+  (path relatif "../contact.html" berlaku untuk file di pages/services/)
+
+  <a class="inline-flex items-center justify-center gap-sm bg-primary text-white px-lg py-3 rounded-2xl font-label-md hover:bg-on-primary-fixed-variant transition-all active:scale-95" href="../contact.html">
+  Isi Formulir Kontak
+  <span aria-hidden="true" class="material-symbols-outlined text-[18px]">send</span>
+  </a>
+-->
