@@ -6,7 +6,7 @@
       "has": [
         { "type": "host", "value": "bmbspace.id" }
       ],
-      "destination": "https://www.berkahmeetingbareg.id/:path*",
+      "destination": "https://www.berkahmeetingbareng.id/:path*",
       "permanent": true
     },
     {
@@ -14,7 +14,7 @@
       "has": [
         { "type": "host", "value": "www.bmbspace.id" }
       ],
-      "destination": "https://www.berkahmeetingbareg.id/:path*",
+      "destination": "https://www.berkahmeetingbareng.id/:path*",
       "permanent": true
     }
   ]

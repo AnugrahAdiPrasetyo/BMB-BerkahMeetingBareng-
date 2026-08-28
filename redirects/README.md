@@ -1,6 +1,6 @@
-# 301 Redirect — bmbspace.id → berkahmeetingbareg.id
+# 301 Redirect — bmbspace.id → berkahmeetingbareng.id
 
-`berkahmeetingbareg.id` is now the canonical domain everywhere in this
+`berkahmeetingbareng.id` is now the canonical domain everywhere in this
 codebase (canonical tags, Open Graph, sitemap.xml, robots.txt, email
 addresses, JSON-LD). This folder holds redirect config so visitors and
 search engines hitting the **old** domain land on the new site instead
@@ -33,7 +33,7 @@ matches it and deploy it there:
 4. Test with a few real indexed URLs, not just the homepage, e.g.:
    - `https://www.bmbspace.id/pages/contact.html`
    - `https://www.bmbspace.id/pages/services/virtual-office.html`
-   Each should 301 to the equivalent `berkahmeetingbareg.id` URL,
+   Each should 301 to the equivalent `berkahmeetingbareng.id` URL,
    preserving the path.
 5. In Google Search Console, submit a change-of-address from the old
    property to the new one once the redirect is confirmed working, and

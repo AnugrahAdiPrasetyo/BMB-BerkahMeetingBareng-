@@ -1,4 +1,4 @@
-# 301 redirect: bmbspace.id -> berkahmeetingbareg.id
+# 301 redirect: bmbspace.id -> berkahmeetingbareng.id
 # Deploy this file at the DOCUMENT ROOT of the OLD domain (bmbspace.id),
 # on whatever server/hosting account that domain currently points to.
 # It does NOT belong in the new site's codebase/deploy folder.
@@ -8,6 +8,6 @@
 
 RewriteEngine On
 
-# www.bmbspace.id/anything -> https://www.berkahmeetingbareg.id/anything
+# www.bmbspace.id/anything -> https://www.berkahmeetingbareng.id/anything
 RewriteCond %{HTTP_HOST} ^(www\.)?bmbspace\.id$ [NC]
-RewriteRule ^(.*)$ https://www.berkahmeetingbareg.id/$1 [R=301,L]
+RewriteRule ^(.*)$ https://www.berkahmeetingbareng.id/$1 [R=301,L]

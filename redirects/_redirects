@@ -1,7 +1,7 @@
-# Netlify redirect: bmbspace.id -> berkahmeetingbareg.id
+# Netlify redirect: bmbspace.id -> berkahmeetingbareng.id
 # Only relevant if the OLD domain (bmbspace.id) is/was hosted on Netlify.
 # Place this file (named exactly "_redirects", no extension) at the
 # publish root of THAT Netlify site — not this repo's deploy folder.
 
-https://bmbspace.id/*     https://www.berkahmeetingbareg.id/:splat   301!
-https://www.bmbspace.id/* https://www.berkahmeetingbareg.id/:splat   301!
+https://bmbspace.id/*     https://www.berkahmeetingbareng.id/:splat   301!
+https://www.bmbspace.id/* https://www.berkahmeetingbareng.id/:splat   301!
