@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const slideCount = track.children.length;
   if (slideCount === 0) return;
 
-  const AUTO_SLIDE_DELAY = 5000;
+  const AUTO_SLIDE_DELAY = 3000;
   const SWIPE_THRESHOLD = 40;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
