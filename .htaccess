@@ -1,0 +1,102 @@
+# =========================================================
+# .htaccess — BMB Space (www.berkahmeetingbareng.id)
+# Deploy ini di DOCUMENT ROOT hosting situs baru
+# (folder yang sama dengan index.html, css/, js/, images/, pages/)
+#
+# CATATAN: file ini BEDA dengan bmb-space/redirects/.htaccess.
+# - File ini            -> dipasang di hosting domain BARU (berkahmeetingbareng.id)
+# - redirects/.htaccess -> dipasang di hosting domain LAMA (bmbspace.id)
+#   buat redirect 301 ke domain baru. Jangan ketuker naruhnya.
+# =========================================================
+
+RewriteEngine On
+
+# -------------------------
+# 1. Force HTTPS + Force www
+#    (canonical URL semua halaman pakai https://www.berkahmeetingbareng.id/)
+# -------------------------
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
+
+# -------------------------
+# 2. Custom Error Pages
+#    (Belum ada 404.html di project ini — buat dulu sebelum uncomment,
+#     atau biarkan default Apache dulu)
+# -------------------------
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html
+
+# -------------------------
+# 3. Disable Directory Listing
+# -------------------------
+Options -Indexes -MultiViews
+
+# -------------------------
+# 4. Blokir akses ke file & folder sensitif
+#    PENTING: repo ini masih bawa folder .git/, README.md, package.json,
+#    package-lock.json, tailwind.config.js, postcss.config.js.
+#    Ini WAJIB tidak ikut ke-deploy ke server produksi (lihat catatan
+#    di bawah chat). Aturan di bawah ini cuma jaring pengaman kedua
+#    kalau sampai kebawa ke-upload.
+# -------------------------
+RewriteRule ^\.git(/|$) - [F,L]
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(md|json|lock|config\.js|log|bak|sql|env)$">
+    Require all denied
+</FilesMatch>
+
+# -------------------------
+# 5. Security Headers
+# -------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# -------------------------
+# 6. Gzip Compression
+# -------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# -------------------------
+# 7. Browser Caching
+# -------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    ExpiresByType text/css                "access plus 1 month"
+    ExpiresByType application/javascript   "access plus 1 month"
+    ExpiresByType text/javascript          "access plus 1 month"
+
+    ExpiresByType image/png                "access plus 1 year"
+    ExpiresByType image/jpg                "access plus 1 year"
+    ExpiresByType image/jpeg               "access plus 1 year"
+    ExpiresByType image/svg+xml            "access plus 1 year"
+    ExpiresByType image/webp               "access plus 1 year"
+    ExpiresByType image/x-icon             "access plus 1 year"
+
+    ExpiresByType text/html                "access plus 0 seconds"
+</IfModule>
+
+# -------------------------
+# 8. Default Charset
+# -------------------------
+AddDefaultCharset UTF-8
