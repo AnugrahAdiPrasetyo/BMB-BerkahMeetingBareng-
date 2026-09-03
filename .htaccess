@@ -21,7 +21,25 @@ RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
 RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
 
 # -------------------------
-# 2. Custom Error Pages
+# 2. Sembunyikan .html dari address bar
+#    Kalau ada yang buka /pages/contact.html secara langsung,
+#    browser dialihkan ke /pages/contact (tanpa .html).
+#    Ini TIDAK mengubah isi file HTML, sitemap.xml, atau canonical tag
+#    yang sudah ada — itu tetap apa adanya.
+# -------------------------
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# -------------------------
+# 3. Serve file .html walau URL yang diketik tanpa .html
+#    (ini yang bikin /pages/contact tetap nemuin contact.html di server)
+# -------------------------
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# -------------------------
+# 4. Custom Error Pages
 #    (Belum ada 404.html di project ini — buat dulu sebelum uncomment,
 #     atau biarkan default Apache dulu)
 # -------------------------
@@ -29,17 +47,16 @@ RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
 # ErrorDocument 500 /500.html
 
 # -------------------------
-# 3. Disable Directory Listing
+# 5. Disable Directory Listing
 # -------------------------
 Options -Indexes -MultiViews
 
 # -------------------------
-# 4. Blokir akses ke file & folder sensitif
+# 6. Blokir akses ke file & folder sensitif
 #    PENTING: repo ini masih bawa folder .git/, README.md, package.json,
 #    package-lock.json, tailwind.config.js, postcss.config.js.
-#    Ini WAJIB tidak ikut ke-deploy ke server produksi (lihat catatan
-#    di bawah chat). Aturan di bawah ini cuma jaring pengaman kedua
-#    kalau sampai kebawa ke-upload.
+#    Ini WAJIB tidak ikut ke-deploy ke server produksi. Aturan di bawah
+#    ini cuma jaring pengaman kedua kalau sampai kebawa ke-upload.
 # -------------------------
 RewriteRule ^\.git(/|$) - [F,L]
 
@@ -52,7 +69,7 @@ RewriteRule ^\.git(/|$) - [F,L]
 </FilesMatch>
 
 # -------------------------
-# 5. Security Headers
+# 7. Security Headers
 # -------------------------
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
@@ -63,7 +80,7 @@ RewriteRule ^\.git(/|$) - [F,L]
 </IfModule>
 
 # -------------------------
-# 6. Gzip Compression
+# 8. Gzip Compression
 # -------------------------
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
@@ -77,7 +94,7 @@ RewriteRule ^\.git(/|$) - [F,L]
 </IfModule>
 
 # -------------------------
-# 7. Browser Caching
+# 9. Browser Caching
 # -------------------------
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -97,6 +114,6 @@ RewriteRule ^\.git(/|$) - [F,L]
 </IfModule>
 
 # -------------------------
-# 8. Default Charset
+# 10. Default Charset
 # -------------------------
 AddDefaultCharset UTF-8
