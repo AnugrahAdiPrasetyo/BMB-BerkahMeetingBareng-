@@ -2,6 +2,19 @@
 <html class="scroll-smooth" lang="id">
 <head>
 <meta charset="utf-8">
+<script>
+  (function () {
+    try {
+      var root = document.documentElement;
+      var key = "bmb-theme";
+      var saved = localStorage.getItem(key);
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (saved ? saved === "dark" : prefersDark) {
+        root.classList.add("dark");
+      }
+    } catch (e) {}
+  })();
+</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Accounting & Tax | berkahmeetingbareng</title>
 <meta content="noindex, nofollow" name="robots">
@@ -273,6 +286,10 @@ Chat via WhatsApp
 </a>
 <script defer src="../../js/script.js"></script>
 <script defer src="../../js/nav.js"></script>
+<script defer src="../../js/theme.js"></script>
 <script defer src="../../js/reveal.js"></script>
+<button type="button" class="bmb-theme-toggle" data-theme-toggle aria-label="Gunakan mode gelap" title="Mode gelap">
+<span class="material-symbols-outlined" data-theme-icon aria-hidden="true">dark_mode</span>
+</button>
 </body>
 </html>

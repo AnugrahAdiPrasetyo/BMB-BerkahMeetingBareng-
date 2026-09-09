@@ -300,3 +300,189 @@
     }
   }
 }
+
+/* =========================================================
+   BMB Space — Dark / Light Mode
+   Source of truth for the theme feature. This block lives in
+   input.css (not hand-patched into the compiled style.css) so
+   it survives `npm run build`. Selectors use [class~="..."]
+   attribute matching against Tailwind's literal utility class
+   names (including "hover:" and "/opacity" variants, since the
+   colon and slash are valid inside an attribute-selector string)
+   so a single rule here fixes every page that ships style.css.
+   ========================================================= */
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Page/background */
+html.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+/* Semantic surface classes */
+html.dark [class~="bg-background"] { background-color: #0f172a !important; }
+html.dark [class~="bg-surface"] { background-color: #111c2e !important; }
+html.dark [class~="bg-surface-container-low"] { background-color: #172235 !important; }
+html.dark [class~="bg-surface-container"] { background-color: #1b283b !important; }
+html.dark [class~="bg-surface-container-high"] { background-color: #223047 !important; }
+html.dark [class~="bg-surface-container-highest"] { background-color: #293952 !important; }
+html.dark [class~="bg-surface-variant"] { background-color: #293b48 !important; }
+
+/* Plain bg-white / bg-gray-50 are used site-wide as the "card" surface
+   (stat cards, pricing cards, service cards, article cards, icon badges).
+   Without this, dark mode leaves every card glowing white. */
+html.dark [class~="bg-white"] { background-color: #1b283b !important; }
+html.dark [class~="bg-gray-50"] { background-color: #1b283b !important; }
+
+html.dark [class~="text-on-background"] { color: #f8fafc !important; }
+html.dark [class~="text-on-surface"] { color: #f8fafc !important; }
+html.dark [class~="text-on-surface-variant"] { color: #cbd5e1 !important; }
+html.dark [class~="text-on-surface-variant/70"] { color: rgba(203, 213, 225, .7) !important; }
+html.dark [class~="text-gray-500"] { color: #94a3b8 !important; }
+
+html.dark [class~="border-outline"] { border-color: #64748b !important; }
+html.dark [class~="border-outline-variant"] { border-color: #334155 !important; }
+html.dark [class~="border-outline-variant/20"] { border-color: rgba(51, 65, 85, .4) !important; }
+html.dark [class~="border-outline-variant/30"] { border-color: rgba(51, 65, 85, .5) !important; }
+html.dark [class~="border-outline-variant/50"] { border-color: rgba(51, 65, 85, .7) !important; }
+html.dark [class~="border-gray-200"],
+html.dark [class~="bprder-gray-200"] { border-color: #334155 !important; }
+
+/* Brand teal on the light palette (#006b58) fails contrast on a dark
+   background; swap to the lighter "inverse-primary" teal already
+   defined in tailwind.config.js for exactly this purpose. */
+html.dark [class~="text-primary"] { color: #5adbbc !important; }
+html.dark [class~="border-primary"] { border-color: #0daa8d !important; }
+html.dark [class~="hover:text-primary"]:hover { color: #5adbbc !important; }
+html.dark .group:hover [class~="group-hover:text-primary"] { color: #5adbbc !important; }
+
+/* Brand-tinted translucent fills stay legible against dark surfaces
+   with a touch more opacity. */
+html.dark [class~="bg-primary-container/5"] { background-color: rgba(13, 170, 141, .12) !important; }
+html.dark [class~="bg-primary-container/10"] { background-color: rgba(13, 170, 141, .16) !important; }
+
+/* Hover backgrounds used on nav / footer links */
+html.dark [class~="hover:bg-surface-container-low"]:hover { background-color: #1b283b !important; }
+html.dark [class~="hover:bg-surface-container"]:hover { background-color: #223047 !important; }
+
+/* Form fields */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Sticky nav once scrolled/static (the transparent hero state is left
+   alone on purpose — it sits over a photo, not over the page surface) */
+html.dark .site-nav.is-scrolled,
+html.dark .site-nav.is-static {
+  background-color: rgba(15, 23, 42, .85) !important;
+  border-bottom-color: #334155 !important;
+}
+
+html.dark .site-nav.is-scrolled .nav-logo-text,
+html.dark .site-nav.is-static .nav-logo-text {
+  color: #5adbbc !important;
+}
+
+html.dark .site-nav.is-scrolled .nav-link,
+html.dark .site-nav.is-static .nav-link {
+  color: #cbd5e1 !important;
+}
+
+html.dark .site-nav.is-scrolled .nav-link:hover,
+html.dark .site-nav.is-static .nav-link:hover {
+  color: #5adbbc !important;
+}
+
+html.dark .site-nav.is-scrolled .nav-toggle-btn,
+html.dark .site-nav.is-static .nav-toggle-btn {
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+html.dark .site-nav.is-scrolled .nav-toggle-btn:hover,
+html.dark .site-nav.is-static .nav-toggle-btn:hover {
+  color: #5adbbc !important;
+  border-color: #5adbbc !important;
+}
+
+html.dark .mobile-menu-panel {
+  background-color: #111c2e !important;
+  border-top-color: #334155 !important;
+}
+
+/* Mitra Kami logo chips — deliberately stay light in both themes.
+   We don't control the partner logo files (opaque JPGs baked with a
+   white background), so instead of letting the blanket bg-white dark
+   override turn these into a mismatched "white box on a dark card"
+   look, they get their own always-light chip style that reads as
+   intentional in dark mode too. */
+.mitra-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(51, 65, 85, 0.12);
+}
+
+html.dark .mitra-card {
+  background-color: #f1f5f9;
+  border-color: rgba(148, 163, 184, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Theme toggle button */
+.bmb-theme-toggle {
+  position: fixed;
+  top: 88px;
+  right: 20px;
+  z-index: 70;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #334155;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.bmb-theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+html.dark .bmb-theme-toggle {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #475569;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.bmb-theme-toggle .material-symbols-outlined {
+  font-size: 22px;
+}
+
+@media (max-width: 767px) {
+  .bmb-theme-toggle {
+    top: 76px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+  }
+}

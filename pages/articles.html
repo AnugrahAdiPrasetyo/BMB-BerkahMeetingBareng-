@@ -2,6 +2,19 @@
 <html class="scroll-smooth" lang="id">
 <head>
 <meta charset="utf-8">
+<script>
+  (function () {
+    try {
+      var root = document.documentElement;
+      var key = "bmb-theme";
+      var saved = localStorage.getItem(key);
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (saved ? saved === "dark" : prefersDark) {
+        root.classList.add("dark");
+      }
+    } catch (e) {}
+  })();
+</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Artikel &amp; Update | berkahmeetingbareng</title>
 <meta content="noindex, nofollow" name="robots">
@@ -85,35 +98,15 @@
 </div>
 </a>
 
-<div class="bg-white rounded-2xl card-shadow border border-outline-variant/30 overflow-hidden flex flex-col">
-<div class="aspect-video bg-surface-container-low border-b-2 border-dashed border-outline-variant flex items-center justify-center">
-<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant" style="font-size: 32px;">image</span>
+<a class="bg-white rounded-2xl card-shadow border border-outline-variant/30 overflow-hidden flex flex-col hover:border-primary-container transition-all" href="articles/tiktok-live.html">
+<div class="aspect-video bg-surface-container-low overflow-hidden">
+<img alt="Seseorang melakukan sesi Live TikTok menggunakan smartphone dan ring light untuk mempromosikan produk" class="w-full h-full object-cover" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=60" width="800" height="450">
 </div>
 <div class="p-lg flex flex-col flex-grow">
-<h2 class="text-headline-sm font-headline-sm mb-sm text-on-background">Artikel Segera Hadir</h2>
-<p class="text-body-sm text-on-surface-variant flex-grow">Artikel ini sedang kami siapkan dan akan segera terbit.</p>
+<h2 class="text-headline-sm font-headline-sm mb-sm text-on-background">Belajar TikTok Affiliate Bareng BMB: Bukan Cuma Belajar, Tapi Terus Didampingi</h2>
+<p class="text-body-sm text-on-surface-variant flex-grow">Program Sobat BMB Affiliate – Impact Barakah mengajak peserta belajar TikTok Affiliate, Live TikTok, hingga praktik dan monitoring yang berkelanjutan bersama BMB.</p>
 </div>
-</div>
-
-<div class="bg-white rounded-2xl card-shadow border border-outline-variant/30 overflow-hidden flex flex-col">
-<div class="aspect-video bg-surface-container-low border-b-2 border-dashed border-outline-variant flex items-center justify-center">
-<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant" style="font-size: 32px;">image</span>
-</div>
-<div class="p-lg flex flex-col flex-grow">
-<h2 class="text-headline-sm font-headline-sm mb-sm text-on-background">Artikel Segera Hadir</h2>
-<p class="text-body-sm text-on-surface-variant flex-grow">Artikel ini sedang kami siapkan dan akan segera terbit.</p>
-</div>
-</div>
-
-<div class="bg-white rounded-2xl card-shadow border border-outline-variant/30 overflow-hidden flex flex-col">
-<div class="aspect-video bg-surface-container-low border-b-2 border-dashed border-outline-variant flex items-center justify-center">
-<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant" style="font-size: 32px;">image</span>
-</div>
-<div class="p-lg flex flex-col flex-grow">
-<h2 class="text-headline-sm font-headline-sm mb-sm text-on-background">Artikel Segera Hadir</h2>
-<p class="text-body-sm text-on-surface-variant flex-grow">Artikel ini sedang kami siapkan dan akan segera terbit.</p>
-</div>
-</div>
+</a>
 
 <a class="bg-white rounded-2xl card-shadow border border-outline-variant/30 overflow-hidden flex flex-col hover:border-primary-container transition-all" href="articles/mengenal-rdtr-alamat-usaha-sesuai-tata-ruang.html">
 <div class="aspect-video bg-surface-container-low overflow-hidden">
@@ -125,20 +118,6 @@
 </div>
 </a>
 
-<div class="bg-white rounded-2xl card-shadow border border-outline-variant/30 overflow-hidden flex flex-col">
-<div class="aspect-video bg-surface-container-low border-b-2 border-dashed border-outline-variant flex items-center justify-center">
-<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant" style="font-size: 32px;">image</span>
-</div>
-<div class="p-lg flex flex-col flex-grow">
-<h2 class="text-headline-sm font-headline-sm mb-sm text-on-background">Artikel Segera Hadir</h2>
-<p class="text-body-sm text-on-surface-variant flex-grow">Artikel ini sedang kami siapkan dan akan segera terbit.</p>
-</div>
-</div>
-
-</div>
-<div class="p-lg border-2 border-dashed border-outline rounded-2xl bg-surface-container-low text-center max-w-2xl mx-auto">
-<span aria-hidden="true" class="material-symbols-outlined text-on-surface-variant mb-xs" style="font-size: 28px;">edit_note</span>
-<p class="text-body-md text-on-surface-variant">Artikel di atas masih berupa contoh tampilan. Kami sedang menyiapkan minimal 3–5 artikel awal sebelum halaman ini go-live.</p>
 </div>
 </div>
 </section>
@@ -199,6 +178,10 @@
 </a>
 <script defer src="../js/script.js"></script>
 <script defer src="../js/nav.js"></script>
+<script defer src="../js/theme.js"></script>
 <script defer src="../js/reveal.js"></script>
+<button type="button" class="bmb-theme-toggle" data-theme-toggle aria-label="Gunakan mode gelap" title="Mode gelap">
+<span class="material-symbols-outlined" data-theme-icon aria-hidden="true">dark_mode</span>
+</button>
 </body>
 </html>
