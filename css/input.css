@@ -486,3 +486,16 @@ html.dark .bmb-theme-toggle {
     height: 42px;
   }
 }
+
+/* Navbar logo: while the nav is still transparent over the hero image
+   (before scroll / not is-static), always show the white logo variant
+   for legibility, regardless of light/dark theme. Once the nav becomes
+   solid (.is-scrolled or .is-static), the normal dark: theme toggle
+   on the logo images takes over again. */
+.site-nav:not(.is-scrolled):not(.is-static) .nav-logo-light {
+  display: none !important;
+}
+
+.site-nav:not(.is-scrolled):not(.is-static) .nav-logo-dark {
+  display: block !important;
+}
